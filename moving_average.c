@@ -10,14 +10,12 @@ void MovingAverage_Init(MovingAverageFilter *filter) {
 }
 
 float MovingAverage_Update(MovingAverageFilter *filter, float new_value) {
-    // Dairesel tampon dolduysa eski değeri toplamdan çıkar
+    
     filter->sum -= filter->buffer[filter->index];
 
-    // Yeni sensör verisini ekle
     filter->buffer[filter->index] = new_value;
     filter->sum += new_value;
 
-    // İndeksi bir sonraki konuma kaydır (Halka Tampon mantığı)
     filter->index = (filter->index + 1) % FILTER_WINDOW_SIZE;
 
     if (filter->count < FILTER_WINDOW_SIZE) {
