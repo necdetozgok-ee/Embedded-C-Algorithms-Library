@@ -5,7 +5,6 @@ int main() {
     MovingAverageFilter filter;
     MovingAverage_Init(&filter);
 
-    // Simüle edilmiş gürültülü sensör verileri (örneğin sıcaklık değerleri)
     float raw_sensor_data[] = {25.0f, 26.5f, 30.0f, 25.5f, 24.8f, 26.0f, 35.0f, 25.1f};
     uint8_t data_length = sizeof(raw_sensor_data) / sizeof(raw_sensor_data[0]);
 
